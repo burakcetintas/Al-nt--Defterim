@@ -1,0 +1,21 @@
+{% extends "layout.html "%}
+{% block body %}
+
+{% if book %}
+
+<h4>{{book.name}}</h4>
+<hr>
+YAZAR : {{book.author}}
+<hr>
+{{book.content}}
+
+
+{% else%}
+
+<div class= "alert alert-warning">Böyle bir kitap bulunmuyor...</div>
+{% endif%}
+
+
+
+
+{% endblock body %}

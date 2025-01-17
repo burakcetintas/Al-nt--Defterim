@@ -1,0 +1,50 @@
+{% extends "layout.html "%}
+
+
+{% block body %}
+
+<h3>DEFTER</h3>
+<small>Hoşgeldin, {{session["username"]}}</small>
+<hr>
+
+<a href="/addbook" class = "btn btn-danger ">Kitap Ekle</a>
+
+{% if book %}
+<table class="table table-hover">
+  <thead>
+    <tr>
+      <th scope="col">id</th>
+      <th scope="col">Kitap</th>
+      <th scope="col">Yazar</th>
+      <th scope="col">Tarih</th>
+        <th scope="col"></th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for book in book %}
+
+    <tr>
+      <th scope="row">{{book.id}}</th>
+      <td><a href="/book/{{book.id}}">{{book.name}}</a></td>
+      <td>{{book.author}}</td>
+        <td>{{book.created_date}}</td>
+
+         <td><a href="/delete/{{book.id}}">Sil</a></td>
+    </tr>
+
+
+    {% endfor %}
+
+
+  </tbody>
+</table>
+
+
+{% else %}
+<div class = "alert alert-danger" >Henüz kitabınız bulunmuyor...</div>
+
+
+{% endif%}
+
+
+{% endblock body %}
